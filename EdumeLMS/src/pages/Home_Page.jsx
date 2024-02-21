@@ -1,9 +1,10 @@
 import React from 'react'
+import TopBar from './component/TopBar'
 
 function Home_Page() {
   return (
     <div>
-      <h1>kasun</h1>
+      <TopBar/>
     </div>
   )
 }
