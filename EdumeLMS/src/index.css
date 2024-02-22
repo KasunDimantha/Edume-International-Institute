@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-hero {
+    background-image: theme('backgroundImage.hero');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+   
+  }
+  
+  .bg-student {
+    background-image: theme('backgroundImage.student');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+   
+  }

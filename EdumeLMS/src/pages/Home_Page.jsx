@@ -5,6 +5,7 @@ function Home_Page() {
   return (
     <div>
       <TopBar/>
+      <p>Home</p>
     </div>
   )
 }
