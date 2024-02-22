@@ -5,16 +5,7 @@ import { Link } from "react-router-dom";
 
 function Student_Dashboard () {
 
-    const feature = useState();
-  
-    const handleClick = () => {
-      // Your action when the div (button) is clicked
-      console.log('Button clicked!');
-
-     
-
-    };
-
+    
 
   
     return (
@@ -27,23 +18,20 @@ function Student_Dashboard () {
         </div>
 
         {/* Add features */}
-        <div className="grid gap-4 grid-cols-2 m-20 text-center text-lg font-semibold">
-          <div onClick={handleClick}
-               className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200 ">
-                
-                <Link to="/announcements" className="a">Announcements and Updates</Link>
-               {/* {showAnnouncements ? (
-                  <Announcements />
-                ) : (
-                  <studentDashboard />
-                )} */}
-               
-          </div>
-          <div className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200">Upcoming Events</div>
-          <div className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200">Achievements and Certifications</div>
+        <div className="grid gap-4 grid-cols-2 m-20 text-center text-lg font-semibold cursor-pointer">
 
-          <div className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200">
-          <Link to="/courses" className="c">Recomended Courses</Link></div>
+          <div onClick={() => (window.location.pathname = "/announcements")} className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200 ">
+          Announcements and Updates</div>
+
+          <div onClick={() => (window.location.pathname = "/events")} className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200">
+          Upcoming Events</div>
+
+          <div onClick={() => (window.location.pathname = "/achievements")} className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200">
+          Achievements and Certifications</div>
+
+          <div onClick={() => (window.location.pathname = "/courses")} className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 hover:bg-zinc-200">
+          Recomended Courses
+          </div>
 
           <div className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 ">Explore New Courses</div>
           <div className="border-double border-4 border-zinc-400 m-18 h-14 rounded-md p-2 ">My enrolled Courses</div>

@@ -6,7 +6,7 @@ function Courses() {
      
         <div className="min-h-screen">
             <div className="bg-gray-300 p-3">
-            <h1 className="font-semibold text-3xl">Courses</h1>
+            <h1 className="font-semibold text-2xl">Courses</h1>
             </div>
         </div>
 

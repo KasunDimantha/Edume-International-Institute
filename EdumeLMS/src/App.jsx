@@ -10,6 +10,8 @@ import Announcements from './pages/Announcements';
 // In your React component file (e.g., src/App.js)
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Courses from './pages/Courses';
+import Events from './pages/Events';
+import Achievements from './pages/Achievements';
 
 
 
@@ -24,6 +26,8 @@ function App() {
           <Route exact path="/studentDashboard"  element={<Student_Dashboard/>}/>
           <Route exact path="/announcements"  element={<Announcements/>}/>
           <Route exact path="/courses"  element={<Courses/>}/>
+          <Route exact path="/events"  element={<Events/>}/>
+          <Route exact path="/achievements"  element={<Achievements/>}/>
         </Routes>
       // </Router>
 
