@@ -12,6 +12,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Courses from './pages/Courses';
 import Events from './pages/Events';
 import Achievements from './pages/Achievements';
+import Manage_Profiles from './pages/Manage_Profile';
+import Messages from './pages/Messages';
+import Contact from './pages/component/Contact';
 
 
 
@@ -28,6 +31,9 @@ function App() {
           <Route exact path="/courses"  element={<Courses/>}/>
           <Route exact path="/events"  element={<Events/>}/>
           <Route exact path="/achievements"  element={<Achievements/>}/>
+          <Route exact path="/manage_profiles"  element={<Manage_Profiles/>}/>
+          <Route exact path="/messages"  element={<Messages/>}/>
+          <Route exact path="/contact"  element={<Contact/>}/>
         </Routes>
       // </Router>
 
