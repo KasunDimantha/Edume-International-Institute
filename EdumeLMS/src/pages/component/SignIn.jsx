@@ -18,11 +18,11 @@ function SignIn() {
     .then(result => {
       console.log(result)
       if(result.data === "SuccessAdmin") {
-        navigate('admin dashbord here')
+        navigate('/a_dashbord')
       } else if (result.data === "SuccessTeacher") {
-        navigate('teacher dashbord here')
+        navigate('/t_dashbord')
       } else if (result.data === "SuccessStudent") {
-        navigate('student dashbord here')
+        navigate('/a_dashbord')
       }
     })
     .catch(err => console.log(err))
