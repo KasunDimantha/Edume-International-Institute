@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import studentDashboard from './Student_Dashboard'
-import Announcements from './Announcements';
-import { Link } from "react-router-dom";
 
 function Student_Dashboard () {
 
     
-
-  
     return (
         
       <div className=" min-h-screen">
 
         {/* Add image to topic div */}
         <div className="h-24 text-center p-6 text-2xl bg-student">
-          <h1 className="font-bold p-3 text-black"> Welcome to the Student Dashboard </h1>
+          <h1 className="font-bold p-3 text-white"> Welcome to the Student Dashboard </h1>
         </div>
 
         {/* Add features */}

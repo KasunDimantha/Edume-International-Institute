@@ -15,12 +15,20 @@ import Achievements from './pages/Achievements';
 import Manage_Profiles from './pages/Manage_Profile';
 import Messages from './pages/Messages';
 import Contact from './pages/component/Contact';
+import Admin_Dashboard from './pages/Admin_Dashboard';
+import AddStudent from './pages/AddStudent';
+import LoadAllStudent from './pages/LoadAllStudent';
+import LoadAllLecturer from './pages/LoadAllLecturer';
+import AddLecturer from './pages/AddLecturer';
+import Admin_navbar from './pages/component/Admin_navbar';
+import Apply_Course from './pages/Apply_Course';
 
 
 
 function App() {
 
   return (
+    
         <Routes>
           <Route exact path="/"  element={<Home_Page/>}/>
           <Route exact path="/signInPage"  element={<SignIn_Page/>} />
@@ -34,7 +42,15 @@ function App() {
           <Route exact path="/manage_profiles"  element={<Manage_Profiles/>}/>
           <Route exact path="/messages"  element={<Messages/>}/>
           <Route exact path="/contact"  element={<Contact/>}/>
+          <Route exact path="/adminDashboard"  element={<Admin_Dashboard/>}/>
+          <Route exact path="/addStudent"  element={<AddStudent/>}/>
+          <Route exact path="/loadAllStudent"  element={<LoadAllStudent/>}/>
+          <Route exact path="/loadAllLecturer"  element={<LoadAllLecturer/>}/>
+          <Route exact path="/addLecturer"  element={<AddLecturer/>}/>
+          <Route exact path="/admin_navbar"  element={<Admin_navbar/>}/>
+          <Route exact path="/apply_course"  element={<Apply_Course/>}/>
         </Routes>
+
       // </Router>
 
   
