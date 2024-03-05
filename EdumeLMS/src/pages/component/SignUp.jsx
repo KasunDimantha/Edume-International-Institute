@@ -5,21 +5,29 @@ import signupimg from "./img/photo02.avif";
 function SignUp() {
 
   const [selectedOption, setSelectedOption] = useState(null);
-  const [id, setId] = useState();
-  const [fname, setFname] = useState();
-  const [email, setEmail] = useState();
-  const [cnumber, setCnumber] = useState();
-  const [password, setPassword] = useState();
+  const [id, setId] = useState('');
+  const [fname, setFname] = useState('');
+  const [email, setEmail] = useState('');
+  const [cnumber, setCnumber] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleCheckboxChange = (value) => {
     setSelectedOption(value);
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post(``, {id, fname, email, cnumber, password, selectedOption})
+    axios.post(`http://localhost:3002/${selectedOption}/register`, {id, fname, email, cnumber, password})
     .then(result => console.log(result))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
+    setSelectedOption('');
+    setId('');
+    setFname('');
+    setEmail('');
+    setCnumber('');
+    setPassword('');
+    
   };
 
   return (
@@ -78,7 +86,7 @@ function SignUp() {
             <div className="mt-1 pl-16">
               <p className="font-bold mb-1">Password</p>
               <input
-                type="text"
+                type="password"
                 placeholder="password"
                 name="password"
                 className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
@@ -112,7 +120,7 @@ function SignUp() {
                     type="checkbox" 
                     name="Student"
                     checked={selectedOption === 'Student'}
-                    onChange={() => handleCheckboxChange('Student')}
+                    onChange={() =>  handleCheckboxChange('Student')}
                 />
                 <p>Student</p>
               </div>

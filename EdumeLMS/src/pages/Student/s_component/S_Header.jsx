@@ -8,7 +8,7 @@ function S_Header() {
     <div>
       <div className="flex justify-between items-center bg-[#77764a] pt-4 pr-20 pb-3 pl-20">
                 <div className="font-sans text-white">
-                    <Link to="/"><h3 className="text-2xl">Edume International Institute</h3></Link>
+                    <Link to="/s_dashbord"><h3 className="text-2xl">Edume International Institute</h3></Link>
                 </div>
                 <div className="flex relative">
                     
@@ -21,21 +21,21 @@ function S_Header() {
                     </div>
                     <div className="font-sans text-white">
                         <ul>
-                          
+                            <Link to="/" className="cursor-pointer">LogOut</Link>
                           
                         </ul>
                     </div>
                 </div>
             </div>
-            <div>
-                <ul className="flex justify-end relative h-0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Home</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Programs</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Support</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>About Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Contact Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>My Courses</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Student Manuals</a></li>
+            <div className='h-0 bottom-2 relative'>
+                <ul className="flex justify-center relative h-h0 -bottom-6">
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Home</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Programs</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Support</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">About Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Contact Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">My Courses</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Student Manuals</a></li>
                 </ul>
             </div>
     </div>

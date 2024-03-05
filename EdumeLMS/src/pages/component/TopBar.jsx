@@ -23,20 +23,20 @@ function TopBar() {
                         <ul>
                             <Link to="/signInPage" className="cursor-pointer">Login</Link>
                             <a className="a2"> | </a>
-                            <Link to="/signUpPage" className="acursor-pointer3">SignUp</Link>
+                            <Link to="/signUpPage" className="acursor-pointer3 ">SignUp</Link>
                         </ul>
                     </div>
                 </div>
             </div>
             <div>
-                <ul className="flex justify-end relative h-0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Home</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Programs</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Support</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>About Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Contact Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>My Courses</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Student Manuals</a></li>
+                <ul className="flex justify-center  relative h-0 -bottom-6">
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Home</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Programs</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Support</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">About Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Contact Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">My Courses</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Student Manuals</a></li>
                 </ul>
             </div>
     </div>

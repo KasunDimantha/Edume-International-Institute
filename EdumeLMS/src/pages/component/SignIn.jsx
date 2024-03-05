@@ -12,24 +12,48 @@ function SignIn() {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('', {email, password})
+    axios.post('http://localhost:3002/Admin/login', {email, password})
     .then(result => {
-      console.log(result)
-      if(result.data === "SuccessAdmin") {
+      if (result.data === "Success") {
         navigate('/a_dashbord')
-      } else if (result.data === "SuccessTeacher") {
-        navigate('/t_dashbord')
-      } else if (result.data === "SuccessStudent") {
-        navigate('/a_dashbord')
-      }
+      } else if (result.data === "user not exist") {
+          
+      } 
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
+
+    e.preventDefault()
+    axios.post('http://localhost:3002/Teacher/login', {email, password})
+    .then(result => {
+      if (result.data === "Success") {
+        navigate('/t_dashbord')
+      } else if (result.data === "user not exist") {
+          
+      } 
+    })
+    .catch(err => console.log(err));
+
+    e.preventDefault()
+    axios.post('http://localhost:3002/Student/login', {email, password})
+    .then(result => {
+      if (result.data === "Success") {
+        navigate('/s_dashbord')
+      } else if (result.data === "user not exist") {
+          
+      } 
+    })
+    .catch(err => console.log(err));
   };
 
   return (
+   
+
     <div className="h-h100 text-center">
+       
       <img src={signinimg} alt="signinimg" className="h-h100 w-w100%" />
 
       <div className="flex justify-center absolute w-w90% text-center pl-5 pr-5 top-32 ">
@@ -66,7 +90,7 @@ function SignIn() {
             <div className="mt-5 pl-16">
               <p className="font-bold mb-2">Password</p>
               <input
-                type="text"
+                type="password"
                 placeholder="password"
                 name="password"
                 className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
@@ -99,6 +123,11 @@ function SignIn() {
       </div>
     </div>
   );
+
+
 }
+
+
+
 
 export default SignIn;
