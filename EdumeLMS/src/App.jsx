@@ -22,34 +22,68 @@ import LoadAllLecturer from './pages/LoadAllLecturer';
 import AddLecturer from './pages/AddLecturer';
 import Admin_navbar from './pages/component/Admin_navbar';
 import Apply_Course from './pages/Apply_Course';
+import AddCourses from './pages/AddCourse';
+import LoadAllCourses from './pages/LoadAllCourses';
+import AddAdmin from './pages/AddAdmin';
+import LoadAllAdmin from './pages/LoadAllAdmin';
 
 
 
 function App() {
 
   return (
-    
+
+    <>
+    {/* <div className='d-flex'>
+      <div className='col-auto'>
+        <Admin_navbar />
+      </div>
         <Routes>
-          <Route exact path="/"  element={<Home_Page/>}/>
-          <Route exact path="/signInPage"  element={<SignIn_Page/>} />
-          <Route exact path="/signUpPage"  element={<SignUp_Page/>} />
-          <Route exact path="/aboutPage"  element={<About_Page/>}/>
-          <Route exact path="/studentDashboard"  element={<Student_Dashboard/>}/>
-          <Route exact path="/announcements"  element={<Announcements/>}/>
-          <Route exact path="/courses"  element={<Courses/>}/>
-          <Route exact path="/events"  element={<Events/>}/>
-          <Route exact path="/achievements"  element={<Achievements/>}/>
-          <Route exact path="/manage_profiles"  element={<Manage_Profiles/>}/>
-          <Route exact path="/messages"  element={<Messages/>}/>
-          <Route exact path="/contact"  element={<Contact/>}/>
-          <Route exact path="/adminDashboard"  element={<Admin_Dashboard/>}/>
-          <Route exact path="/addStudent"  element={<AddStudent/>}/>
-          <Route exact path="/loadAllStudent"  element={<LoadAllStudent/>}/>
-          <Route exact path="/loadAllLecturer"  element={<LoadAllLecturer/>}/>
-          <Route exact path="/addLecturer"  element={<AddLecturer/>}/>
-          <Route exact path="/admin_navbar"  element={<Admin_navbar/>}/>
-          <Route exact path="/apply_course"  element={<Apply_Course/>}/>
+          <Route exact path="/adminDashboard" element={<Admin_Dashboard />} />
+          <Route exact path="/addStudent" element={<AddStudent />} />
+          <Route exact path="/loadAllStudent" element={<LoadAllStudent />} />
+          <Route exact path="/loadAllLecturer" element={<LoadAllLecturer />} />
+          <Route exact path="/addLecturer" element={<AddLecturer />} />
+          <Route exact path="/loadAllCourses" element={<LoadAllCourses />} />
+          <Route exact path="/addCourse" element={<AddCourses />} />         
         </Routes>
+    </div> */}
+    
+    <div>
+        <Routes>
+          <Route exact path="/" element={<Home_Page />} />
+          <Route exact path="/signInPage" element={<SignIn_Page />} />
+          <Route exact path="/signUpPage" element={<SignUp_Page />} />
+          <Route exact path="/aboutPage" element={<About_Page />} />
+          <Route exact path="/studentDashboard" element={<Student_Dashboard />} />
+          <Route exact path="/announcements" element={<Announcements />} />
+          <Route exact path="/courses" element={<Courses />} />
+          <Route exact path="/events" element={<Events />} />
+          <Route exact path="/achievements" element={<Achievements />} />
+          <Route exact path="/manage_profiles" element={<Manage_Profiles />} />
+          <Route exact path="/messages" element={<Messages />} />
+          <Route exact path="/contact" element={<Contact />} />
+          
+          {/* <Route exact path="/admin_navbar"  element={<Admin_navbar/>}/> */}
+          <Route exact path="/apply_course" element={<Apply_Course />} />
+
+          <Route exact path="/adminDashboard" element={<Admin_Dashboard />} />
+          <Route exact path="/addStudent" element={<AddStudent />} />
+          <Route exact path="/loadAllStudent" element={<LoadAllStudent />} />
+          <Route exact path="/loadAllLecturer" element={<LoadAllLecturer />} />
+          <Route exact path="/addLecturer" element={<AddLecturer />} />
+          <Route exact path="/loadAllCourses" element={<LoadAllCourses />} />         
+          <Route exact path="/addCourse" element={<AddCourses />} /> 
+          <Route exact path="/addAdmin" element={<AddAdmin />} /> 
+          <Route exact path="/loadAllAdmin" element={<LoadAllAdmin />} /> 
+         
+          
+        </Routes>
+
+      
+      </div>
+      
+      </>
 
       // </Router>
 

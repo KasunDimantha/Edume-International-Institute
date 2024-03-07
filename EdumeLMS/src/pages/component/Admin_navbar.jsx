@@ -17,7 +17,7 @@ const Admin_navbar = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/",
+            path:"/adminDashboard",
             name:"Dashboard",
             icon:<FaTh/>
         },
@@ -32,22 +32,22 @@ const Admin_navbar = ({children}) => {
             icon:<FaRegChartBar/>
         },
         {
-            path:"/comment",
-            name:"Comment",
+            path:"/loadAllCourses",
+            name:"Courses",
             icon:<FaCommentAlt/>
         },
         {
-            path:"/product",
-            name:"Product",
-            icon:<FaShoppingBag/>
+            path:"/loadAllAdmin",
+            name:"Admins",
+            icon:<FaUserAlt/>
         }
         
     ]
     return (
 
         
-        <div className=" min-h-screen flex text-white w-56">
-           <div div style={{ width: isOpen ? "200px" : "80px" }} className="sidebar bg-gray-900 p-4 text-gray-300">
+        <div className="h-screen ">
+           <div div style={{ width: isOpen ? "250px" : "80px" }} className="sidebar bg-gray-900 p-4 text-gray-300 h-screen">
                <div className="top_section flex items-center py-3">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo text-xl p-3">Logo</h1>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars flex text-lg ">

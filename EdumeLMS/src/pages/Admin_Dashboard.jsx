@@ -7,12 +7,13 @@ function Admin_Dashboard () {
     return (
 
     <>
+   
     
-    <div className="container min-h-screen">
+    <div className=" min-h-screen d-flex">
+        
+        <Admin_navbar/>
 
-    <div><Admin_navbar/></div>
-
-            <div className="">
+            <div className=" justify-around w-full">
             
             <div className="bg-gray-300 p-3">
                 <h1 className="font-semibold text-xl text-center">Admin Dashboard</h1>
