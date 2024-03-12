@@ -1,8 +1,52 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Admin_navbar from "./component/Admin_navbar";
+import axios from "axios";
 
 function AddCourses () {
+
+    const [course, setCourse] = useState({
+        courseName: "",
+        details: "",
+        duration: "",
+        fee: "",
+        content: "",
+    });
+
+   
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCourse((prevCourse) => ({
+          ...prevCourse,
+          [name]: value
+        }));
+    };
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(course);
+
+        try {
+            const response = await axios.post('http://localhost:3002/course', course);
+            
+            console.log(response.data);
+      
+            // Reset the form after successful submission
+            setCourse({
+                courseName: "",
+                details: "",
+                duration: "",
+                fee: "",
+                content: "",
+            });
+          } catch (error) {
+            // Handle errors if the POST request fails
+            console.error('Error submitting data:', error);
+          }
+
+    }
+
   
     return (   
       
@@ -27,7 +71,7 @@ function AddCourses () {
             </div>
 
             {/* add form */}
-            <form className="border-2 m-20 p-10 mx-32">
+            <form onSubmit={handleSubmit}  className="border-2 m-20 p-10 mx-32">
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
                     <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
@@ -35,20 +79,11 @@ function AddCourses () {
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-                    <div class="sm:col-span-4">
-                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Course Id</label>
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                            <input type="text" readOnly value="Course id" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Course Id"></input>
-                            </div>
-                        </div>
-                        </div>
-
                         <div class="sm:col-span-4">
-                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Course Name</label>
+                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                            <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"></input>
+                            <input type="text" name="courseName" value={course.courseName} onChange={handleChange} id="courseName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"></input>
                             </div>
                         </div>
                         </div>
@@ -57,17 +92,26 @@ function AddCourses () {
                         <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Details</label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                    
-                            <input type="password" name="password" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="1234"></input>
+                            <textarea className="details" name="details" id="details" value={course.details} onChange={handleChange}  class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="1234"></textarea>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="sm:col-span-4">
+                        <label for="content" class="block text-sm font-medium leading-6 text-gray-900">Course Content</label>
+                        <div class="mt-2">
+                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                    
+                                <textarea className="content" name="content" id="content" value={course.content} onChange={handleChange}  class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="1234"></textarea>
                             </div>
                         </div>
                         </div>
                     
 
-                        <div class="col-span-full">
+                        {/* <div class="col-span-full">
                         <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
-                        </div>
+                        </div> */}
 
-                        <div class="col-span-full">
+                        {/* <div class="col-span-full">
                        
                         <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                             <div class="text-center">
@@ -84,7 +128,7 @@ function AddCourses () {
                             <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                             </div>
                         </div>
-                        </div>
+                        </div> */}
                     </div>
                     </div>
 
@@ -95,32 +139,18 @@ function AddCourses () {
                         <div class="sm:col-span-3">
                         <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Duration</label>
                         <div class="mt-2">
-                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+                            <input type="text" name="duration" id="duration" value={course.duration} onChange={handleChange}  class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
                         </div>
                         </div>
 
                         <div class="sm:col-span-3">
                         <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Course fee</label>
                         <div class="mt-2">
-                            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+                            <input type="text" name="fee" id="fee" value={course.fee} onChange={handleChange}  class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
                         </div>
                         </div>
 
-                        <div class="sm:col-span-4">
-                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Course Content</label>
-                        <div class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
-                        </div>
-                        </div>
-
-                        <div class="sm:col-span-4">
-                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Contact No</label>
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                            <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Contact No"></input>
-                            </div>
-                        </div>
-                        </div>
+                       
 
                         {/* <div class="sm:col-span-3">
                         <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Gender</label>

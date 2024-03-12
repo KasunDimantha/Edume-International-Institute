@@ -53,9 +53,9 @@ function LoadAllStudent () {
                 <thead>
                     <tr>
                     <th className="py-2 px-4 border-b">ID</th>
-                    <th className="py-2 px-4 border-b">Full Name</th>
-                    <th className="py-2 px-4 border-b">User Name</th>
-                    <th className="py-2 px-4 border-b">Password</th>
+                    <th className="py-2 px-4 border-b">Username</th>
+                    <th className="py-2 px-4 border-b">Course</th>
+                    <th className="py-2 px-4 border-b">Start Date</th>
                     <th className="py-2 px-4 border-b">Contact Number</th>
                     <th className="py-2 px-4 border-b">Remove Student</th>
                 
