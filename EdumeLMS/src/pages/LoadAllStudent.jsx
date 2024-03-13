@@ -32,7 +32,7 @@ function LoadAllStudent () {
 
                 {/* Add button to link addStudent page */}
                 <div className="m-3 pr-16 flex justify-end ">
-                <button onClick={() => (window.location.pathname = "/addStudent")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
+                <button onClick={() => (window.location.pathname = "/signUp")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
                 Add Students
                 </button>
                 <button class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent  hover:bg-blue-500">

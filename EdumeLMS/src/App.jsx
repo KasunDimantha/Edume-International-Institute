@@ -3,7 +3,7 @@
 
 import Home_Page from './pages/Home_Page';
 import SignIn_Page from './pages/SignIn_Page';
-import SignUp_Page from './pages/SignUp_Page';
+import SignUp from './pages/SignUp';
 import About_Page from './pages/About_Page';
 import Student_Dashboard from './pages/Student_Dashboard';
 import Announcements from './pages/Announcements';
@@ -26,6 +26,8 @@ import AddCourses from './pages/AddCourse';
 import LoadAllCourses from './pages/LoadAllCourses';
 import AddAdmin from './pages/AddAdmin';
 import LoadAllAdmin from './pages/LoadAllAdmin';
+import Semester from './pages/Semester'; 
+import Module from './pages/Module';
 
 
 
@@ -53,7 +55,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home_Page />} />
           <Route exact path="/signInPage" element={<SignIn_Page />} />
-          <Route exact path="/signUpPage" element={<SignUp_Page />} />
+          <Route exact path="/signUp" element={<SignUp />} />
           <Route exact path="/aboutPage" element={<About_Page />} />
           <Route exact path="/studentDashboard" element={<Student_Dashboard />} />
           <Route exact path="/announcements" element={<Announcements />} />
@@ -76,6 +78,8 @@ function App() {
           <Route exact path="/addCourse" element={<AddCourses />} /> 
           <Route exact path="/addAdmin" element={<AddAdmin />} /> 
           <Route exact path="/loadAllAdmin" element={<LoadAllAdmin />} /> 
+          <Route exact path="/semester" element={<Semester />} />
+          <Route exact path="/module" element={<Module />} />
          
           
         </Routes>

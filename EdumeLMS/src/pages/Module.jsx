@@ -3,21 +3,18 @@ import { Link } from "react-router-dom";
 import Admin_navbar from "./component/Admin_navbar";
 import axios from "axios";
 
-function AddCourses () {
+function Module () {
 
-    const [course, setCourse] = useState({
-        courseName: "",
-        details: "",
-        duration: "",
-        fee: "",
-        content: "",
+    const [module, setModule] = useState({
+        moduleID: "",
+        moduleName: "",
     });
 
    
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setCourse((prevCourse) => ({
-          ...prevCourse,
+        setModule((prevModule) => ({
+          ...prevModule,
           [name]: value
         }));
     };
@@ -25,20 +22,18 @@ function AddCourses () {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(course);
+        console.log(module);
 
         try {
-            const response = await axios.post('http://localhost:3002/course', course);
+            const response = await axios.post('http://localhost:3002/module', module);
             
             console.log(response.data);
       
             // Reset the form after successful submission
-            setCourse({
-                courseName: "",
-                details: "",
-                duration: "",
-                fee: "",
-                content: "",
+            setModule({
+                moduleID: "",
+                moduleName: "",
+                
             });
           } catch (error) {
             // Handle errors if the POST request fails
@@ -70,6 +65,10 @@ function AddCourses () {
                 Update
             </button>
             
+            <button onClick={() => (window.location.pathname = "/addCourse")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
+                Add New Course
+            </button>
+
             <button onClick={() => (window.location.pathname = "/semester")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
                 Add New Semester
             </button>
@@ -80,51 +79,40 @@ function AddCourses () {
             <form onSubmit={handleSubmit}  className="border-2 m-20 p-10 mx-32">
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
-                    <h2 class="text-base font-semibold leading-7 text-gray-900">Course Details</h2>
+                    <h2 class="text-base font-semibold leading-7 text-gray-900">Module Details</h2>
                     <p class="mt-1 text-sm leading-6 text-gray-600">This information will be displayed publicly so be careful what you share.</p>
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
                         <div class="sm:col-span-4">
-                        <label for="coursename" class="block text-sm font-medium leading-6 text-gray-900">Course Name</label>
+                        <label for="semesterID" class="block text-sm font-medium leading-6 text-gray-900">Semester ID</label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                            <input type="text" name="courseName" value={course.courseName} onChange={handleChange} id="courseName" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
+                            <input type="text" name="semesterID" readOnly value={module.semesterID} onChange={handleChange} id="semesterID" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
+                            </div>
+                        </div>
+                        </div>
+
+
+                        <div class="sm:col-span-4">
+                        <label for="moduleID" class="block text-sm font-medium leading-6 text-gray-900">Module ID</label>
+                        <div class="mt-2">
+                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                            <input type="text" name="moduleID" value={module.moduleID} onChange={handleChange} id="moduleID" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
                             </div>
                         </div>
                         </div>
 
                         <div class="sm:col-span-4">
-                        <label for="Details" class="block text-sm font-medium leading-6 text-gray-900">Details</label>
+                        <label for="moduleName" class="block text-sm font-medium leading-6 text-gray-900">Module Name</label>
                         <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                    
-                            <textarea className="details" name="details" id="details" value={course.details} onChange={handleChange}  class="block flex-1 bg-transparent py-1.5 pl-3 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="more details..."></textarea>
+                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                            <input type="text" name="moduleName" value={module.moduleName} onChange={handleChange} id="moduleName" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
                             </div>
                         </div>
                         </div>
 
-                        <div class="sm:col-span-4">
-                        <label for="content" class="block text-sm font-medium leading-6 text-gray-900">Course Content</label>
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                    
-                                <textarea className="content" name="content" id="content" value={course.content} onChange={handleChange}  class="block flex-1 bg-transparent py-1.5 pl-3 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="more details..."></textarea>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="sm:col-span-3">
-                            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Duration</label>
-                            <div class="mt-2">
-                                <input type="text" name="duration" id="duration" value={course.duration} onChange={handleChange}  class="block w-full rounded-md py-1.5 pl-3 text-gray-900 border-2 border-slate-300 shadow-sm  ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
-                            </div>
-                        </div>
-
-                        <div class="sm:col-span-3">
-                            <label for="coursefee" class="block text-sm font-medium leading-6 text-gray-900">Course fee</label>
-                            <div class="mt-2">
-                                <input type="text" name="fee" id="fee" value={course.fee} onChange={handleChange}  class="block w-full rounded-md py-1.5 pl-3 text-gray-900 border-2 border-slate-300 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
-                            </div>
-                        </div>
+                    
                     
                     </div>
                     </div>
@@ -147,4 +135,4 @@ function AddCourses () {
   
 }
 
-export default AddCourses;
+export default Module;
