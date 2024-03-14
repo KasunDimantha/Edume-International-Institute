@@ -29,13 +29,13 @@ function S_Header() {
             </div>
             <div className='h-0 bottom-2 relative'>
                 <ul className="flex justify-center relative h-h0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Home</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Programs</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Support</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">About Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Contact Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">My Courses</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 ">Student Manuals</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Home</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Programs</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Support</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">About Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Contact Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">My Courses</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Student Manuals</a></li>
                 </ul>
             </div>
     </div>

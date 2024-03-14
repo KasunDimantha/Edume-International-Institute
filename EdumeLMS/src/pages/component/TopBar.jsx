@@ -30,13 +30,14 @@ function TopBar() {
             </div>
             <div>
                 <ul className="flex justify-center  relative h-0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Home</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Programs</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Support</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">About Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Contact Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">My Courses</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 ">Student Manuals</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Home</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Programs</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Support</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">About Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Contact Us</a></li>
+                    <Link to='/coursesPage'><li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Courses</a></li></Link>
+                    
+                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Student Manuals</a></li>
                 </ul>
             </div>
     </div>

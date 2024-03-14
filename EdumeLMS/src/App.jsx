@@ -13,6 +13,7 @@ import S_AnnouncementsPage from './pages/Student/S_AnnouncementsPage';
 import S_AssingmentPage from './pages/Student/S_AssingmentPage';
 import S_EntrolledCouecesPage from './pages/Student/S_EntrolledCouecesPage';
 import S_PersonalResultPage from './pages/Student/S_PersonalResultPage';
+import Courses_Page from './pages/Courses_Page';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/"  element={<Home_Page/>}/>
           <Route exact path="/signInPage"  element={<SignIn_Page/>} />
           <Route exact path="/signUpPage"  element={<SignUp_Page/>} />  
+          <Route exact path="/coursesPage"  element={<Courses_Page/>} />
           <Route exact path="/t_dashbord"  element={<Teacher_dashbord/>}/>
           <Route exact path="/s_dashbord"  element={<Student_dashbord/>}/>
           <Route exact path="/a_dashbord"  element={<Admin_dashbord/>}/>
