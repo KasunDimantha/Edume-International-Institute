@@ -46,7 +46,8 @@ const Admin_navbar = ({children}) => {
     return (
 
         
-        <div className="h-screen ">
+        <div className="h-screen">
+            
            <div div style={{ width: isOpen ? "250px" : "80px" }} className="sidebar bg-gray-900 p-4 text-gray-300 h-screen">
                <div className="top_section flex items-center py-3">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo text-xl p-3">Logo</h1>

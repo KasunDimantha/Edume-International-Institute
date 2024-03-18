@@ -5,14 +5,40 @@ import axios from "axios";
 
 function Module () {
 
-    const [module, setModule] = useState({
-        moduleID: "",
-        moduleName: "",
+    // const [selectedValue, setSelectedValue] = useState('');
+    const [options, setOptions] = useState({
+       
     });
 
+
+    const [module, setModule] = useState({
+        moduleID: "",
+        courseID: "",
+        semID: "",
+        moduleName: "",
+        moduleCategory: "",
+        moduleStatus:"",
+        moduleCredit: "",
+        lecturer: "",
+    });
+
+    useEffect(() => {
+        // Fetch data from the API endpoint for lecturers
+        axios.get('http://localhost:3002/lecturers')
+          .then(response => {
+            // Set the fetched data to the state
+            setOptions(response.data);
+          })
+          .catch(error => {
+            console.error('Error fetching lecturers:', error);
+          });
+      }, []);
+
+    
    
     const handleChange = (e) => {
         const { name, value } = e.target;
+        
         setModule((prevModule) => ({
           ...prevModule,
           [name]: value
@@ -23,6 +49,7 @@ function Module () {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(module);
+        
 
         try {
             const response = await axios.post('http://localhost:3002/module', module);
@@ -32,9 +59,16 @@ function Module () {
             // Reset the form after successful submission
             setModule({
                 moduleID: "",
+                courseID: "",
+                semID: "",
                 moduleName: "",
-                
+                moduleCategory: "",
+                moduleStatus:"",
+                moduleCredit: "",
+                lecturer: "",
             });
+
+            
           } catch (error) {
             // Handle errors if the POST request fails
             console.error('Error submitting data:', error);
@@ -45,7 +79,7 @@ function Module () {
   
     return (   
       
-      <div className="min-h-screen d-flex">
+      <div className="min-h-screen d-flex ">
 
         <Admin_navbar/>
 
@@ -61,17 +95,11 @@ function Module () {
                 All Courses
             </button>
 
-            <button onClick={() => (window.location.pathname = "/")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
-                Update
+            <button onClick={() => (window.location.pathname = "/loadAllModule")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
+                All Modules
             </button>
             
-            <button onClick={() => (window.location.pathname = "/addCourse")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
-                Add New Course
-            </button>
-
-            <button onClick={() => (window.location.pathname = "/semester")} class=" text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent mr-3 hover:bg-blue-500">
-                Add New Semester
-            </button>
+            
             
             </div>
 
@@ -85,14 +113,22 @@ function Module () {
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
                         <div class="sm:col-span-4">
-                        <label for="semesterID" class="block text-sm font-medium leading-6 text-gray-900">Semester ID</label>
+                        <label for="courseID" class="block text-sm font-medium leading-6 text-gray-900">Course ID</label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                            <input type="text" name="semesterID" readOnly value={module.semesterID} onChange={handleChange} id="semesterID" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
+                            <input type="text" name="courseID" readOnly value={module.courseID} onChange={handleChange} id="courseID" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
                             </div>
                         </div>
                         </div>
 
+                        <div class="sm:col-span-4">
+                        <label for="semID" class="block text-sm font-medium leading-6 text-gray-900">Semester ID</label>
+                        <div class="mt-2">
+                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                            <input type="text" name="semID" readOnly value={module.semID} onChange={handleChange} id="semID" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
+                            </div>
+                        </div>
+                        </div>
 
                         <div class="sm:col-span-4">
                         <label for="moduleID" class="block text-sm font-medium leading-6 text-gray-900">Module ID</label>
@@ -103,6 +139,7 @@ function Module () {
                         </div>
                         </div>
 
+
                         <div class="sm:col-span-4">
                         <label for="moduleName" class="block text-sm font-medium leading-6 text-gray-900">Module Name</label>
                         <div class="mt-2">
@@ -110,6 +147,54 @@ function Module () {
                             <input type="text" name="moduleName" value={module.moduleName} onChange={handleChange} id="moduleName" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
                             </div>
                         </div>
+                        </div>
+
+                        <div class="sm:col-span-4">
+                        <label for="moduleCategory" class="block text-sm font-medium leading-6 text-gray-900">Module Category</label>
+                        <div class="mt-2">
+                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                            <input type="text" name="moduleCategory" value={module.moduleCategory} onChange={handleChange} id="moduleCategory" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="sm:col-span-4">
+                        <label for="moduleStatus" class="block text-sm font-medium leading-6 text-gray-900">Module Status</label>
+                        <div class="mt-2">
+                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                            <input type="text" name="moduleStatus" value={module.moduleStatus} onChange={handleChange} id="moduleStatus" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="sm:col-span-4">
+                        <label for="moduleCredit" class="block text-sm font-medium leading-6 text-gray-900">Module Credit</label>
+                        <div class="mt-2">
+                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                            <input type="text" name="moduleCredit" value={module.moduleCredit} onChange={handleChange} id="moduleCredit" class="block flex-1 bg-transparent py-1.5 pl-1 text-gray-900 border-2 border-slate-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="course name"></input>
+                            </div>
+                        </div>
+                        </div>
+
+
+                        <div className="sm:col-span-4">
+                        <label htmlFor="comboBox" className="mb-2 text-sm font-semibold mr-5">
+                            lecturer
+                        </label>
+                        <select
+                            id="lecturer"
+                            name="lecturer"
+                            value={selectedValue}
+                            onChange={handleChange}
+                            className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                        >
+                            <option value="">Select a lecturer</option>
+                            {options.map(lecturer => (
+                          <option key={lecturer.id} value={lecturer.name}>{lecturer.name}</option>
+                            ))}
+                        </select>
+
+                       
                         </div>
 
                     

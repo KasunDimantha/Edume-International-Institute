@@ -28,6 +28,8 @@ import AddAdmin from './pages/AddAdmin';
 import LoadAllAdmin from './pages/LoadAllAdmin';
 import Semester from './pages/Semester'; 
 import Module from './pages/Module';
+import LoadAllSemester from './pages/LoadAllSemester';
+import LoadAllModule from './pages/LoadAllModule';
 
 
 
@@ -55,7 +57,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home_Page />} />
           <Route exact path="/signInPage" element={<SignIn_Page />} />
-          <Route exact path="/signUp" element={<SignUp />} />
+          <Route exact path="/signUp" element={<SignUp/>} />
           <Route exact path="/aboutPage" element={<About_Page />} />
           <Route exact path="/studentDashboard" element={<Student_Dashboard />} />
           <Route exact path="/announcements" element={<Announcements />} />
@@ -80,7 +82,10 @@ function App() {
           <Route exact path="/loadAllAdmin" element={<LoadAllAdmin />} /> 
           <Route exact path="/semester" element={<Semester />} />
           <Route exact path="/module" element={<Module />} />
+          <Route exact path="/loadAllSemester" element={<LoadAllSemester />} />
+          <Route exact path="/loadAllModule" element={<LoadAllModule />} />
          
+        
           
         </Routes>
 

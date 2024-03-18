@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import axios from 'axios';
 // import signupimg from "./img/photo02.avif";
+import { useSignup } from "../hooks/useSignup";
 
 function SignUp() {
 
   const [selectedOption, setSelectedOption] = useState(null);
-  const [id, setId] = useState('');
+  
   const [fname, setFname] = useState('');
   const [email, setEmail] = useState('');
   const [cnumber, setCnumber] = useState('');
   const [password, setPassword] = useState('');
+
+  const {Signup, error, isLoading} = useSignup()
 
   const handleCheckboxChange = (value) => {
     setSelectedOption(value);
@@ -18,11 +21,11 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post(`http://localhost:3002/${selectedOption}/register`, {id, fname, email, cnumber, password})
+    axios.post(`http://localhost:3002/${selectedOption}/register`, { fname, email, cnumber, password})
     .then(result => console.log(result))
     .catch(err => console.log(err));
     setSelectedOption('');
-    setId('');
+    
     setFname('');
     setEmail('');
     setCnumber('');
@@ -39,16 +42,6 @@ function SignUp() {
           <h2 className="mt-3 pl-16 font-bold text-xl">Create An Account</h2>
 
           <form onSubmit={handleSubmit}>
-            <div className="mt-4 pl-16">
-              <p className="font-bold mb-1">ID</p>
-              <input
-                type="text"
-                placeholder="id"
-                name="id"
-                className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
-                onChange={(e) => setId(e.target.value)}
-              />
-            </div>
 
             <div className="mt-1 pl-16">
               <p className="font-bold mb-1">Full Name</p>
@@ -58,6 +51,7 @@ function SignUp() {
                 name="fname"
                 className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
                 onChange={(e) => setFname(e.target.value)}
+                value={fname}
               />
             </div>
 
@@ -69,6 +63,7 @@ function SignUp() {
                 name="email"
                 className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
                 onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </div>
 
@@ -80,6 +75,7 @@ function SignUp() {
                 name="cnumber"
                 className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
                 onChange={(e) => setCnumber(e.target.value)}
+                value={cnumber}
               />
             </div>
 
@@ -91,6 +87,7 @@ function SignUp() {
                 name="password"
                 className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
                 onChange={(e) => setPassword(e.target.value)}
+                value={password}
               />
             </div>
 

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-
+import TopBar from "./component/TopBar";
 
 
 function About_Page () {
  
     return (
-        
-      <div className="bg-hero min-h-screen relative m-4 rounded-b-xl">
+      <>
+      <div className="bg-hero min-h-screen  z-0 ">
+        <TopBar/>
         
         {/* add transparent div */}
-        <div className=' bg-gray-400 bg-opacity-60 size-6/12 rounded-br-3xl p-4 left-24 top-20 absolute' >
+        <div className=' bg-gray-400 bg-opacity-60 size-6/12 rounded-br-3xl p-4 m-20' >
 
-          <h4 className='text-xl font-bold pb-3 '> About Us</h4>
+          <h4 className='text-xl font-bold pb-3 '>About Us</h4>
           
             <p className="text-balance">
               Edume International Institute presents an unparalleled opportunity to delve into cutting-edge technology 
@@ -25,11 +26,13 @@ function About_Page () {
 
             <button
             onClick={() => (window.location.pathname = "/courses")}
-            class="bg-gray-500 bg-opacity-15 border border-slate-900 hover:bg-white hover:border-white text-black py-2 px-4 rounded right-20 bottom-10 absolute ">Lern more...</button>
+            class="bg-gray-500 bg-opacity-15 border border-slate-900 hover:bg-white hover:border-white text-black py-2 px-4 rounded ml-96 mt-6">Lern more...</button>
           
         </div>
 
       </div>
+
+      </>
       
     )
   

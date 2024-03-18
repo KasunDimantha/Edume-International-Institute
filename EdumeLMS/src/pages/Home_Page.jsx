@@ -3,11 +3,10 @@ import TopBar from './component/TopBar'
 
 function Home_Page() {
   return (
-    <div>
-      <TopBar/>
-      <p>Home</p>
-    </div>
+    <section className=' min-h-screen bg-orange-300'>
+   <TopBar/>
+    </section>
   )
 }
 
-export default Home_Page
+export default Home_Page;

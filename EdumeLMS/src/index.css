@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* about us page background image */
 .bg-hero {
     background-image: theme('backgroundImage.hero');
     background-size: cover; 
@@ -12,6 +13,15 @@
   
   .bg-student {
     background-image: theme('backgroundImage.student');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+   
+  }
+
+  /* sign in page background image */
+  .bg-sign {
+    background-image: theme('backgroundImage.sign');
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;

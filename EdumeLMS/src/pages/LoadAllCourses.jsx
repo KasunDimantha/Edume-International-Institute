@@ -4,17 +4,21 @@ import Admin_navbar from "./component/Admin_navbar";
 
 function LoadAllCourses () {
 
-    const data = [
-        { id: 1, name: 'Information Technology' },
-        { id: 2, name: 'Buisness' },
-        // Add more data as needed
-      ];
+    const Data = [
+        {
+          id:1,
+          title:'Information Technology',
+          company:'Edume Institute'      
+        }
+       
+    ]
+
   
     return (
 
-        <>
+    <>
       
-      <div className="  min-h-screen d-flex">
+    <div className="  min-h-screen d-flex">
 
        <Admin_navbar/>
 
@@ -34,37 +38,43 @@ function LoadAllCourses () {
                 </button>
                 </div>
 
-                    {/* add table to load All students*/}
-                    <table className="min-w-full bg-white border border-gray-300">
-                    <thead>
-                        <tr>
-                        <th className="py-2 px-4 border-b">ID</th>
-                        <th className="py-2 px-4 border-b">Course Name</th>
-                        <th className="py-2 px-4 border-b">Duration</th>
-                        <th className="py-2 px-4 border-b">Course fee</th>
-                    
-                    
-                        {/* Add more header columns as needed */}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((row) => (
-                        <tr key={row.id}>
-                            <td className="py-2 px-4 border-b">{row.id}</td>
-                            <td className="py-2 px-4 border-b">{row.name}</td>
-                            <td className="py-2 px-4 border-b">{row.duration}</td>
-                            <td className="py-2 px-4 border-b">{row.fee}</td>
-                            {/* Add more columns as needed */}
-                        </tr>
-                        ))}
-                    </tbody>
-                    </table>
+                
+                <div className='jobContainer flex gap-10 justify-center flex-wrap items-center py-10' >
 
+                {
+                Data.map(({id,title,company}) => {
+                return(
+                
+                    <div key={id} className='group group/item singleJob w-[250px] p-[15px] rounded-[10px] shadow-lg shadow-greyIsh-400/700 hover:shadow-lg hover:bg-[#3260b5e5] '>
+                    
+                    <p className='text-md font-bold  pt-[20px] border-t-[2px] mt-[20px] group-hover:text-white'>
+                    {title}
+                    </p>
+
+                    <div className='company flex items-center gap-2'>
+                
+                        <span className='text-[14px] py-[1rem] block  group-hover:text-white'>{company}</span>
+                    </div>
+
+                    <button onClick={() => (window.location.pathname = "/loadAllSemester")} className=' border-[3px] rounded-[10px] block p-[10px] w-full text-[14px] font-semibold bg-white text-textColor
+                    group-hover/item:text-textColor group-hover:text-black'>View Semesters...</button>
+
+                    </div>
+
+
+                    )
+                })
+                }
+
+
+            </div>
+
+                    
         </div>
 
-        </div>
+    </div>
 
-        </>
+    </>
 
     )
   
