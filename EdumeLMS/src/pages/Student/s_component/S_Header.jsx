@@ -2,8 +2,14 @@ import React from 'react'
 import { FaSearch } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { Link } from "react-router-dom";
+import { useLogout } from "../../../hooks/useLogout";
 
 function S_Header() {
+    const {logout } = useLogout()
+
+    const handleClick = () => {
+        logout()
+    }
   return (
     <div>
       <div className="flex justify-between items-center bg-[#77764a] pt-4 pr-20 pb-3 pl-20">
@@ -20,22 +26,21 @@ function S_Header() {
                         <a className="flex justify-center text-base"><VscAccount/></a>
                     </div>
                     <div className="font-sans text-white">
-                        <ul>
-                            <Link to="/" className="cursor-pointer">LogOut</Link>
-                          
-                        </ul>
+                        <div>
+                            <button onClick={handleClick} className='cursor-pointer'>LogOut</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className='h-0 bottom-2 relative'>
                 <ul className="flex justify-center relative h-h0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Home</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Programs</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Support</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">About Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Contact Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">My Courses</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Student Manuals</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Home</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Programs</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Support</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">About Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Contact Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">My Courses</a></li>
+                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Student Manuals</a></li>
                 </ul>
             </div>
     </div>

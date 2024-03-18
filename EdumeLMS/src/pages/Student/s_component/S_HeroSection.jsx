@@ -17,9 +17,9 @@ function S_HeroSection(props) {
         <div class="grid grid-cols-2 gap-12 ml-12 mr-12  mt-20 mb-4 ">
           <Link to="/s_dashbord/s_editProfile"><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">View Student Profile</div></Link>
           
-          <Link to='/s_dashbord/s_entrolledCouecesPage'><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">Entrolled Cources</div></Link>
+          <Link to='/s_dashbord/s_entrolledCouecesPage'><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">Entrolling Cources</div></Link>
           
-          <Link to='/s_dashbord/s_accessCourcesPage'><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">Accessing For Cources</div></Link>
+          <Link to='/s_dashbord/s_accessCourcesPage'><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer"> Module Teams</div></Link>
           
           <Link to='/s_dashbord/s_assingmentPage'><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">Assignment, Quiz and Task</div></Link>
           

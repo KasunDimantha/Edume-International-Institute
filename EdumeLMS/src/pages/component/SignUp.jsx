@@ -1,33 +1,25 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import signupimg from "./img/photo02.avif";
+import  { useSignup } from "../../hooks/useSignup";
 
 function SignUp() {
 
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [id, setId] = useState('');
-  const [fname, setFname] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [cnumber, setCnumber] = useState('');
+  const [role, setRole] = useState(null);
   const [password, setPassword] = useState('');
+  const { signup, isLoading,  error } = useSignup()
 
   const handleCheckboxChange = (value) => {
-    setSelectedOption(value);
+    setRole(value);
   };
   
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post(`http://localhost:3002/${selectedOption}/register`, {id, fname, email, cnumber, password})
-    .then(result => console.log(result))
-    .catch(err => console.log(err));
-    setSelectedOption('');
-    setId('');
-    setFname('');
-    setEmail('');
-    setCnumber('');
-    setPassword('');
     
+    await signup(email, password, name, cnumber, role)
   };
 
   return (
@@ -39,25 +31,15 @@ function SignUp() {
           <h2 className="mt-3 pl-16 font-bold text-xl">Create An Account</h2>
 
           <form onSubmit={handleSubmit}>
-            <div className="mt-4 pl-16">
-              <p className="font-bold mb-1">ID</p>
-              <input
-                type="text"
-                placeholder="id"
-                name="id"
-                className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
-                onChange={(e) => setId(e.target.value)}
-              />
-            </div>
 
             <div className="mt-1 pl-16">
               <p className="font-bold mb-1">Full Name</p>
               <input
                 type="text"
                 placeholder="Full Name"
-                name="fname"
+                name="name"
                 className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
-                onChange={(e) => setFname(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
 
@@ -101,7 +83,7 @@ function SignUp() {
                 <input 
                     type="checkbox" 
                     name="Admin" 
-                    checked={selectedOption === 'Admin'}
+                    checked={role === 'Admin'}
                     onChange={() => handleCheckboxChange('Admin')}
                 />
                 <p>Admin</p>
@@ -110,7 +92,7 @@ function SignUp() {
                 <input 
                     type="checkbox" 
                     name="Teacher" 
-                    checked={selectedOption === 'Teacher'}
+                    checked={role === 'Teacher'}
                     onChange={() => handleCheckboxChange('Teacher')}
                 />
                 <p>Teacher</p>
@@ -119,7 +101,7 @@ function SignUp() {
                 <input 
                     type="checkbox" 
                     name="Student"
-                    checked={selectedOption === 'Student'}
+                    checked={role === 'Student'}
                     onChange={() =>  handleCheckboxChange('Student')}
                 />
                 <p>Student</p>
@@ -127,9 +109,10 @@ function SignUp() {
             </div>
 
             <div className="flex justify-center mt-4">
-              <button className="text-5 border-none cursor-pointer bg-[#a83030d7] text-white pt-2 pb-2 pl-16 pr-16 rounded-xl">
+              <button disabled={isLoading} className="text-5 border-none cursor-pointer bg-[#a83030d7] text-white pt-2 pb-2 pl-16 pr-16 rounded-xl">
                 Sign UP
               </button>
+              {error && <div className="error">{error}</div>}
             </div>
           </form>
         </div>
@@ -138,4 +121,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUp
