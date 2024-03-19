@@ -64,7 +64,7 @@ const Admin_navbar = ({children}) => {
                    ))
                }
            </div>
-           <main>{children}</main>
+          {/* <main>{children}</main> */}
         </div>
     );
 };

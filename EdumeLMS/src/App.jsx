@@ -30,6 +30,7 @@ import Semester from './pages/Semester';
 import Module from './pages/Module';
 import LoadAllSemester from './pages/LoadAllSemester';
 import LoadAllModule from './pages/LoadAllModule';
+import Upload_PaymentSlip from './pages/Upload_PaymentSlip';
 
 
 
@@ -38,20 +39,7 @@ function App() {
   return (
 
     <>
-    {/* <div className='d-flex'>
-      <div className='col-auto'>
-        <Admin_navbar />
-      </div>
-        <Routes>
-          <Route exact path="/adminDashboard" element={<Admin_Dashboard />} />
-          <Route exact path="/addStudent" element={<AddStudent />} />
-          <Route exact path="/loadAllStudent" element={<LoadAllStudent />} />
-          <Route exact path="/loadAllLecturer" element={<LoadAllLecturer />} />
-          <Route exact path="/addLecturer" element={<AddLecturer />} />
-          <Route exact path="/loadAllCourses" element={<LoadAllCourses />} />
-          <Route exact path="/addCourse" element={<AddCourses />} />         
-        </Routes>
-    </div> */}
+    
     
     <div>
         <Routes>
@@ -84,6 +72,7 @@ function App() {
           <Route exact path="/module" element={<Module />} />
           <Route exact path="/loadAllSemester" element={<LoadAllSemester />} />
           <Route exact path="/loadAllModule" element={<LoadAllModule />} />
+          <Route exact path="/upload_paymentSlip" element={<Upload_PaymentSlip />} />
          
         
           

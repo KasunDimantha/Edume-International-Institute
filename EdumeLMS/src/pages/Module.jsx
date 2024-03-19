@@ -5,10 +5,7 @@ import axios from "axios";
 
 function Module () {
 
-    // const [selectedValue, setSelectedValue] = useState('');
-    const [options, setOptions] = useState({
-       
-    });
+   
 
 
     const [module, setModule] = useState({
@@ -22,19 +19,7 @@ function Module () {
         lecturer: "",
     });
 
-    useEffect(() => {
-        // Fetch data from the API endpoint for lecturers
-        axios.get('http://localhost:3002/lecturers')
-          .then(response => {
-            // Set the fetched data to the state
-            setOptions(response.data);
-          })
-          .catch(error => {
-            console.error('Error fetching lecturers:', error);
-          });
-      }, []);
 
-    
    
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -181,18 +166,7 @@ function Module () {
                         <label htmlFor="comboBox" className="mb-2 text-sm font-semibold mr-5">
                             lecturer
                         </label>
-                        <select
-                            id="lecturer"
-                            name="lecturer"
-                            value={selectedValue}
-                            onChange={handleChange}
-                            className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                        >
-                            <option value="">Select a lecturer</option>
-                            {options.map(lecturer => (
-                          <option key={lecturer.id} value={lecturer.name}>{lecturer.name}</option>
-                            ))}
-                        </select>
+                        
 
                        
                         </div>
