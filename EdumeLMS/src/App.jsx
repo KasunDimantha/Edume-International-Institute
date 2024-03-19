@@ -1,7 +1,6 @@
 import './App.css'
 import React from "react";
-import { BrowserRouter as Router,Route,Routes } from 'react-router-dom'
-import { useAuthContext } from './hooks/useAuthContext';
+import { BrowserRouter as Router,Route,Routes, Navigate } from 'react-router-dom'
 import Home_Page from './pages/Home_Page';
 import SignIn_Page from './pages/SignIn_Page';
 import SignUp_Page from './pages/SignUp_Page';
@@ -15,21 +14,27 @@ import S_AssingmentPage from './pages/Student/S_AssingmentPage';
 import S_EntrolledCouecesPage from './pages/Student/S_EntrolledCouecesPage';
 import S_PersonalResultPage from './pages/Student/S_PersonalResultPage';
 import Courses_Page from './pages/Courses_Page';
+import { useAuthContext } from './hooks/useAuthContext';
 
 
 function App() {
+
+  const { user } = useAuthContext();
 
   return (
     <>
       <Router>
         <Routes>
           <Route exact path="/"  element={<Home_Page/>}/>
-          <Route exact path="/signInPage"  element={<SignIn_Page/>} />
-          <Route exact path="/signUpPage"  element={<SignUp_Page/>} />  
+          <Route exact path="/signInPage"  element={!user ? <SignIn_Page/> : 
+                                                    user.role === "Admin" ? <Navigate to="/a_dashbord"/> :
+                                                    user.role === "Student" ? <Navigate to="/s_dashbord"/> :
+                                                    <Navigate to="/t_dashbord"/>} />
+          <Route exact path="/signUpPage"  element={!user ? <SignUp_Page/> : <Navigate to="/signInPage"/>} />  
           <Route exact path="/coursesPage"  element={<Courses_Page/>} />
-          <Route exact path="/t_dashbord"  element={<Teacher_dashbord/>}/>
-          <Route exact path="/s_dashbord"  element={<Student_dashbord/>}/>
-          <Route exact path="/a_dashbord"  element={<Admin_dashbord/>}/>
+          <Route exact path="/t_dashbord"  element={user ? <Teacher_dashbord/> : <Navigate to="/signInPage"/>}/>
+          <Route exact path="/s_dashbord"  element={user ? <Student_dashbord/> : <Navigate to="/signInPage"/>}/>
+          <Route exact path="/a_dashbord"  element={user ? <Admin_dashbord/> : <Navigate to="/signInPage"/>}/>
           <Route exact path='/s_dashbord/s_editProfile' element={<S_EditProfile/>}/>
           <Route exact path='/s_dashbord/s_accessCourcesPage' element={<S_AccessCourcesPage/>}/>
           <Route exact path='/s_dashbord/s_announcementsPage' element={<S_AnnouncementsPage/>}/>

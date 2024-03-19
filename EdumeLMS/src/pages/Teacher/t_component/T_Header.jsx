@@ -2,8 +2,17 @@ import React from "react"
 import { FaSearch } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { Link } from "react-router-dom";
+import { useLogout } from "../../../hooks/useLogout";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 
 function T_Header() {
+    const {logout } = useLogout()
+    const { user } = useAuthContext()
+
+    const handleClick = () => {
+        logout()
+    }
+
   return (
     <div>
       <div className="flex justify-between items-center bg-[#77764a] pt-4 pr-20 pb-3 pl-20">
@@ -19,11 +28,16 @@ function T_Header() {
                     <div>
                         <a className="flex justify-center text-base"><VscAccount/></a>
                     </div>
+                    {user && (
+                        <span>{user.name}</span>
+                    )}
+
                     <div className="font-sans text-white">
-                        <ul>
-                          
-                          
-                        </ul>
+                        <div>
+                        <Link to="/signInPage">
+                            <button onClick={handleClick} className='cursor-pointer pl-1'>LogOut</button>
+                        </Link> 
+                        </div>
                     </div>
                 </div>
             </div>

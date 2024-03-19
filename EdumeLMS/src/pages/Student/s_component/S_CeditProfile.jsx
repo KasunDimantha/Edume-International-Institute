@@ -2,45 +2,68 @@ import React, { useState, useEffect } from "react";
 import poto1 from "./s_img/hand.jpg";
 import axios from "axios";
 import { MdOutlineCancel } from "react-icons/md";
+import { useWorkoutsContext } from "../../../hooks/useWorkoutContext";
+import { useAuthContext } from "../../../hooks/useAuthContext";
+
 
 function S_CeditProfile() {
   const [activeTab, setActiveTab] = useState("Table");
-  const [stu, setStu] = useState([]);
-  const [email01, setEmail01] = useState("sahan@gmail.com");
   const [name, setFname] = useState();
   const [email, setEmail] = useState();
   const [con_number, setCnumber] = useState();
-  const [error, setError] = useState(null);
-  const [student, setStudent] = useState(null);
-  const id01 = "65ee92feededae15b13e2e7e";
+  const { workouts, dispatch } = useWorkoutsContext();
+  const { user } = useAuthContext()
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
+  const getData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3002/User/${user._id}`,  {
+        headers: {
+            'Authorization': `Bearer ${user.token}`
+        }
+        });
+
+        if (response.status === 200) {
+
+          dispatch({ type: "SET_WORKOUTS", payload: response.data})
+
+        }
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   useEffect(() => {
-    console.log("hi kasun");
-    axios
-      .get(`http://localhost:3002/User/${id01}`)
-      .then((result) => {
-        setStudent(result.data);
-        console.log(result.data);
-      })
-      .catch((error) => console.log(error));
-    console.log(stu);
-  }, []);
+    getData();
+  }, [dispatch, user]);
 
+  console.log(workouts)
 
   const handleSubmit = (e) => {
-    console.log("clicked button");
-    e.preventDefault();
-    axios
-      .patch(`http://localhost:3002/User/${id01}`, { name, email, con_number })
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
-    setSelectedOption("");
+
+    try {
+      const response = axios.patch(`http://localhost:3002/User/${user._id}`, {
+        name, 
+        email, 
+        con_number
+      },  {
+        headers: {
+            'Authorization': `Bearer ${user.token}`
+        }
+        });
+
+        if (response.status === 200) {
+          dispatch({ type: "UPDATE_WORKOUT", payload: response.data})
+        } 
+
+    } catch (error) {
+      console.log(error)
+    }
    
   };
 
@@ -54,20 +77,20 @@ function S_CeditProfile() {
             <div>
               <div className="mt-36 ml-16 bg-slate-300 pt-5 pb-5 pl-5 pr-5 w-w450 rounded-xl">
                 {
-                  student &&
-                    student.map((user) => (
+                  workouts &&
+                  workouts.map((user1) => (
                       <div>
-                        <p ket={user._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
-                          Name : {user.name}{" "}
+                        <p  key={user1._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
+                          Name : {user1.name}{" "}
                         </p>
-                        <p ket={user._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
-                          Email : {user.email}{" "}
+                        <p key={user1._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
+                          Email : {user1.email}{" "}
                         </p>
-                        <p ket={user._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
-                          Con Number : {user.con_number}{" "}
+                        <p key={user1._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
+                          Con Number : {user1.con_number}{" "}
                         </p>
-                        <p ket={user._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
-                          Role : {user.role}{" "}
+                        <p key={user1._id} className=" bg-slate-400 rounded-lg mt-2 pl-3">
+                          Role : {user1.role}{" "}
                         </p>
                       </div>
                     ))

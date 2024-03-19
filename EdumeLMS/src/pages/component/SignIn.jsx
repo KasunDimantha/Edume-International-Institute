@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import signinimg from "./img/photo02.avif";
 import { Link, useNavigate } from "react-router-dom";
+import { useLogin } from "../../hooks/useLogin";
 import img1 from "./img/Facebook.png";
 import img2 from "./img/Google.png";
 import img3 from "./img/linkedin.png";
@@ -10,44 +10,14 @@ function SignIn() {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const navigate = useNavigate();
-
+  const { login, error, isLoading } = useLogin();
   
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3002/Admin/login', {email, password})
-    .then(result => {
-      if (result.data === "Success") {
-        navigate('/a_dashbord')
-      } else if (result.data === "user not exist") {
-          
-      } 
-    })
-    .catch(err => console.log(err));
 
-    e.preventDefault()
-    axios.post('http://localhost:3002/Teacher/login', {email, password})
-    .then(result => {
-      if (result.data === "Success") {
-        navigate('/t_dashbord')
-      } else if (result.data === "user not exist") {
-          
-      } 
-    })
-    .catch(err => console.log(err));
-
-    e.preventDefault()
-    axios.post('http://localhost:3002/Student/login', {email, password})
-    .then(result => {
-      if (result.data === "Success") {
-        navigate('/s_dashbord')
-      } else if (result.data === "user not exist") {
-          
-      } 
-    })
-    .catch(err => console.log(err));
-  };
+    await login(email, password)
+  }
+  
 
   return (
    
@@ -98,9 +68,10 @@ function SignIn() {
               />
             </div>
             <div className="flex justify-center mt-10">
-                <button className="text-5 border-none cursor-pointer bg-[#a83030d7] text-white pt-3 pb-3 pl-20 pr-20 rounded-xl">
+                <button disabled={isLoading} className="text-5 border-none cursor-pointer bg-[#a83030d7] text-white pt-3 pb-3 pl-20 pr-20 rounded-xl">
                   Sign In
                 </button>
+                {error && <div className="error">{error}</div>}
             </div>
           </form>
 

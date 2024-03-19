@@ -3,9 +3,11 @@ import { FaSearch } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { useLogout } from "../../../hooks/useLogout";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 
 function S_Header() {
     const {logout } = useLogout()
+    const { user } = useAuthContext()
 
     const handleClick = () => {
         logout()
@@ -22,12 +24,20 @@ function S_Header() {
                     <button className="w-w29 h-h29 rounded-2xl relative border-none bg-white -left-7 hover:bg-gray-300 active:bg-gray-200 pl-1"><FaSearch/></button>
                 </div>
                 <div className="items-center">
+                
                     <div>
                         <a className="flex justify-center text-base"><VscAccount/></a>
                     </div>
+
+                    {user && (
+                        <span>{user.name}</span>
+                    )}
+
                     <div className="font-sans text-white">
                         <div>
-                            <button onClick={handleClick} className='cursor-pointer'>LogOut</button>
+                        <Link to="/signInPage">
+                            <button onClick={handleClick} className='cursor-pointer pl-1'>LogOut</button>
+                        </Link> 
                         </div>
                     </div>
                 </div>
