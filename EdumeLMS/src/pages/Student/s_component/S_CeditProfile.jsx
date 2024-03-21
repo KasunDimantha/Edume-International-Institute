@@ -18,8 +18,10 @@ function S_CeditProfile() {
     setActiveTab(tab);
   };
 
+
   const getData = async () => {
     try {
+      
       const response = await axios.get(`http://localhost:3002/User/${user._id}`,  {
         headers: {
             'Authorization': `Bearer ${user.token}`
@@ -39,10 +41,10 @@ function S_CeditProfile() {
 
 
   useEffect(() => {
-    getData();
+    console.log(user)
+    getData()
   }, [dispatch, user]);
 
-  console.log(workouts)
 
   const handleSubmit = (e) => {
 
@@ -121,6 +123,7 @@ function S_CeditProfile() {
                       placeholder="Full Name"
                       autoComplete="off"
                       name="name"
+                      value={user.name}
                       className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
                       onChange={(e) => setFname(e.target.value)}
                     />
@@ -133,6 +136,7 @@ function S_CeditProfile() {
                       placeholder="email"
                       autoComplete="off"
                       name="email"
+                      value={user.email}
                       className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
                       onChange={(e) => setEmail(e.target.value)}
                     />
@@ -145,6 +149,7 @@ function S_CeditProfile() {
                       placeholder="Contact No"
                       autoComplete="off"
                       name="con_number"
+                      value={user.con_number}
                       className="border-non outline-none pt-1 pb-1 pl-2 pr-2 font-sans text-1xl"
                       onChange={(e) => setCnumber(e.target.value)}
                     />

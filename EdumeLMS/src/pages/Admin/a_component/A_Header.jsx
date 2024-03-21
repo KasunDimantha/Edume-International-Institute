@@ -17,7 +17,7 @@ function A_Header() {
     <div>
       <div className="flex justify-between items-center bg-[#77764a] pt-4 pr-20 pb-3 pl-20">
                 <div className="font-sans text-white">
-                    <Link to="/"><h3 className="text-2xl">Edume International Institute</h3></Link>
+                    <Link to="/a_dashbord"><h3 className="text-2xl">Edume International Institute</h3></Link>
                 </div>
                 <div className="flex relative">
                     

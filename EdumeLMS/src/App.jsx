@@ -15,6 +15,10 @@ import S_EntrolledCouecesPage from './pages/Student/S_EntrolledCouecesPage';
 import S_PersonalResultPage from './pages/Student/S_PersonalResultPage';
 import Courses_Page from './pages/Courses_Page';
 import { useAuthContext } from './hooks/useAuthContext';
+import A_LoadallAdminPage from './pages/Admin/A_LoadallAdminPage';
+import A_LoadallStudentPage from './pages/Admin/A_LoadallStudentPage';
+import A_LoadallTeacherPage from './pages/Admin/A_LoadallTeacherPage';
+
 
 
 function App() {
@@ -41,6 +45,9 @@ function App() {
           <Route exact path='/s_dashbord/s_assingmentPage' element={<S_AssingmentPage/>}/>
           <Route exact path='/s_dashbord/s_entrolledCouecesPage' element={<S_EntrolledCouecesPage/>}/>
           <Route exact path='/s_dashbord/s_personalResultPage' element={<S_PersonalResultPage/>}/>
+          <Route exact path='/a_dashbord/a_loadalladminPage' element={<A_LoadallAdminPage/>}/>
+          <Route exact path='/a_dashbord/a_loadallstudentPage' element={<A_LoadallStudentPage/>}/>
+          <Route exact path='/a_dashbord/a_loadallteacherPage' element={<A_LoadallTeacherPage/>}/>
         </Routes>
       </Router>
     </>
