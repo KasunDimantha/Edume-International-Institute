@@ -46,17 +46,28 @@ function S_Assingment() {
           {/* Tab pane content */}
           <div className="mt-4">
             {activeTab === 'Assignment' && 
-            <div className="bg-gray-100 p-4">
-              {/* divide width */}
-              <div class="grid grid-cols-1 divide-y">
-                <div className='p-3'>01</div>
-                <div className='p-3'>02</div>
-                <div className='p-3'>03</div>
+              <div className="bg-gray-100 p-4">
+                {/* divide width */}
+                <div class="grid grid-cols-1 divide-y">
+                  <div className='p-3'>01</div>
+                  <div className='p-3'>02</div>
+                  <div className='p-3'>03</div>
+                </div>
               </div>
-            </div>}
+            }
 
-            {activeTab === 'Quiz' && <div className="bg-gray-100 p-4">Content for Tab 2</div>}
-            {activeTab === 'Task' && <div className="bg-gray-100 p-4">Content for Tab 3</div>}
+            {activeTab === 'Quiz' && 
+              <div className="bg-gray-100 p-4">
+                Content for Tab 2
+              </div>
+            }
+
+            {activeTab === 'Task' && 
+              <div className="bg-gray-100 p-4">
+                Content for
+                Tab 3
+              </div>
+            }
           </div>
         </div>
       </div>

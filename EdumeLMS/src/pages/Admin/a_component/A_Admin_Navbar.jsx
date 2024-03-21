@@ -31,7 +31,7 @@ const A_Admin_Navbar = ({children}) => {
             icon:<FaRegChartBar/>
         },
         {
-            path:"/loadAllCourses",
+            path:"/a_dashbord/a_loadallcoursePage",
             name:"Courses",
             icon:<FaCommentAlt/>
         },
