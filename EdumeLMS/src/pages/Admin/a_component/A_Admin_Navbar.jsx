@@ -45,7 +45,7 @@ const A_Admin_Navbar = ({children}) => {
     return (
 
         
-        <div className="h-screen">
+        <div className="h-screen relative">
             
            <div div style={{ width: isOpen ? "250px" : "80px" }} className="sidebar bg-gray-900 p-4 text-gray-300 h-screen">
                <div className="top_section flex items-center py-3">

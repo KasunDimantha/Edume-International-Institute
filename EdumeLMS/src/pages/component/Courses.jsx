@@ -3,13 +3,7 @@ import axios from "axios";
 
 function Courses() {
     
-  const [data, setData] = useState([
-    {
-        id: 1,
-        cname: "Information Technology",
-        category: "Technology",
-    }
-  ]);
+  
   const [activeTab, setActiveTab] = useState("course");
 
 

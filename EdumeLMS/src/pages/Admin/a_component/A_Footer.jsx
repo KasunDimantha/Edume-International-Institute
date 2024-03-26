@@ -9,7 +9,7 @@ import pay from "./a_img/pay.png";
 function A_Footer() {
   return (
     <div>
-      <div className="flex justify-between bg-[#3c3c80] pl-16 pt-9 pr-5 pb-5">
+      <div className="flex justify-between bg-[#3c3c80] pl-16 pt-9 pr-5 pb-5 relative ">
         <div className="text-white font-sans">
           <h5 className="text-white font-sans text-base">Do you Need Any help?</h5>
           <p className="pt-1">Contact us through </p>

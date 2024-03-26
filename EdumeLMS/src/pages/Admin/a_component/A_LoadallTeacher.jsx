@@ -4,6 +4,7 @@ import axios from 'axios'
 import A_Admin_Navbar from './A_Admin_Navbar'
 import { useWorkoutsContext } from '../../../hooks/useWorkoutContext';
 import { useAuthContext } from '../../../hooks/useAuthContext';
+import { GiCancel } from "react-icons/gi";
 
 
 function A_LoadallTeacher() {
@@ -83,10 +84,10 @@ function A_LoadallTeacher() {
             <A_Admin_Navbar/>
 
             { activeTab === 'loadTeacher' && 
-            <div className=" justify-around w-full">
+            <div className=" justify-around absolute top-24 left-64 w-2/3">
 
                 <div className="bg-gray-300 p-3">
-                    <h1 className="font-semibold text-xl text-center">All Admins</h1>
+                    <h1 className="font-semibold text-xl text-center">All Lectures</h1>
                 </div>
 
                 {/* Add button to link addStudent page */}
@@ -151,14 +152,17 @@ function A_LoadallTeacher() {
             } 
 
             {activeTab === 'addTeacher' &&
-                <div>
+                <div className='absolute top-20 left-64 w-2/3'>
+                    <div class="mt-6 flex items-center justify-end gap-x-6">
+                        <button onClick={() => handleTabClick('loadTeacher')} class="text-lg text-green-700 right-36 top-8 font-semibold leading-6 absolute"><GiCancel /></button>
+                    </div>
                     <form  onSubmit={handleSubmit}  className="border-2 m-15 p-8 mx-32">
                         <div class="space-y-12">
                             <div class="border-b border-gray-900/10 pb-12">
                                 <h2 class="text-base font-semibold leading-7 text-gray-900">New Admin</h2>
                             
 
-                                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
 
                                         <div class="sm:col-span-4">
                                         <label class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>

@@ -44,12 +44,12 @@ function S_Header() {
             </div>
             <div className='h-0 bottom-2 relative'>
                 <ul className="flex justify-center relative h-h0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Home</a></li>
+                    <Link to='/s_dashbord'><li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Home</a></li></Link>
                     <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Programs</a></li>
                     <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Support</a></li>
                     <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">About Us</a></li>
                     <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Contact Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">My Courses</a></li>
+                    <Link to='/s_dashbord/s_mycoursepage'><li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">My Courses</a></li></Link>
                     <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Student Manuals</a></li>
                 </ul>
             </div>

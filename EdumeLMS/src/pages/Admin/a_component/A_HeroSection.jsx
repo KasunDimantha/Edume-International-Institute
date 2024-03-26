@@ -8,14 +8,14 @@ function A_HeroSection() {
   return (
     <div className='bg-[#9ebae8]'>
          
-      <div className=" min-h-screen d-flex">
+      <div className="  d-flex">
           <A_Admin_Navbar/>
-            <div className=" justify-around w-full">
+            <div className=" justify-around absolute top-60 left-64 w-2/3 ">
             
             
             <div class="">
 
-                <h1 className='font-bold text-lg p-5'>Overview</h1>
+                <h1 className='font-bold text-lg p-5'></h1>
 
                 <div className="flex justify-around">
 

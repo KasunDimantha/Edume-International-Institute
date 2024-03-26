@@ -42,17 +42,7 @@ function A_Header() {
                     
                 </div>
             </div>
-            <div>
-                <ul className="flex justify-end relative h-0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Home</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Programs</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Support</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>About Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Contact Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>My Courses</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-white "><a>Student Manuals</a></li>
-                </ul>
-            </div>
+            
     </div>
   )
 }

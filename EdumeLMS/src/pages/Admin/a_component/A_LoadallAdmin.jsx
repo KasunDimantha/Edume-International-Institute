@@ -4,6 +4,7 @@ import axios from 'axios'
 import A_Admin_Navbar from './A_Admin_Navbar'
 import { useWorkoutsContext } from '../../../hooks/useWorkoutContext';
 import { useAuthContext } from '../../../hooks/useAuthContext';
+import { GiCancel } from "react-icons/gi";
 
 
 function A_LoadallAdmin() {
@@ -86,12 +87,12 @@ function A_LoadallAdmin() {
 
   return (
     <div>
-      <div className="  min-h-screen d-flex">
+      <div className="  min-h-screen d-flex ">
 
             <A_Admin_Navbar/>
 
             {  activeTab === 'loadAdmin' && 
-            <div className=" justify-around w-full">
+            <div className=" justify-around absolute top-24 left-64 w-2/3">
 
                 <div className="bg-gray-300 p-3">
                     <h1 className="font-semibold text-xl text-center">All Admins</h1>
@@ -159,89 +160,90 @@ function A_LoadallAdmin() {
             }
 
             {  activeTab === 'addAdmin' && 
-                <div>
-                <form  onSubmit={handleSubmit}  className="border-2 m-15 p-8 mx-32">
-                    <div class="space-y-12">
-                        <div class="border-b border-gray-900/10 pb-12">
-                            <h2 class="text-base font-semibold leading-7 text-gray-900">New Admin</h2>
-                        
-
-                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-
-                                    <div class="sm:col-span-4">
-                                    <label class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
-                                    <div class="mt-2">
-                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                                        <input 
-                                            type="text" 
-                                            name="name"  
-                                            class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                                            placeholder="full name"
-                                            onChange={(e) => setName(e.target.value)}>
-
-                                        </input>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                    <div class="sm:col-span-4">
-                                    <label class="block text-sm font-medium leading-6 text-gray-900">Email</label>
-                                    <div class="mt-2">
-                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                                        <input 
-                                            type="text" 
-                                            name="email"  
-                                            class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                                            placeholder="email"
-                                            onChange={(e) => setEmail(e.target.value)}>
-                                        </input>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                    <div class="sm:col-span-4">
-                                    <label class="block text-sm font-medium leading-6 text-gray-900">Con Number</label>
-                                    <div class="mt-2">
-                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                                        <input 
-                                            type="text" 
-                                            name="cnumber"  
-                                            class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                                            placeholder="con number"
-                                            onChange={(e) => setCnumber(e.target.value)}>
-                                        </input>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                    <div class="sm:col-span-4">
-                                    <label class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                                    <div class="mt-2">
-                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                                        <input 
-                                            type="password" 
-                                            name="password"  
-                                            class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                                            placeholder="password"
-                                            onChange={(e) => setPassword(e.target.value)}>
-                                        </input>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                            </div>
-                                
-                                
-                        </div>
+                <div className='absolute top-20 left-64 w-2/3'>
+                    <div class="mt-6 flex items-center justify-end gap-x-6">
+                        <button onClick={() => handleTabClick('loadAdmin')} class="text-lg text-green-700 right-36 top-8 font-semibold leading-6 absolute"><GiCancel /></button>
                     </div>
+                    <form  onSubmit={handleSubmit}  className="border-2 m-15 p-8 mx-32">
+                        <div class="space-y-12">
+                            <div class="border-b border-gray-900/10 pb-12">
+                                <h2 class="text-base font-semibold leading-7 text-gray-900">New Admin</h2>
+                            
 
-                            <div class="mt-6 flex items-center justify-end gap-x-6">
-                                <button type='submit'  class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
+
+                                        <div class="sm:col-span-4">
+                                        <label class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
+                                        <div class="mt-2">
+                                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                                            <input 
+                                                type="text" 
+                                                name="name"  
+                                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+                                                placeholder="full name"
+                                                onChange={(e) => setName(e.target.value)}>
+
+                                            </input>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="sm:col-span-4">
+                                        <label class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+                                        <div class="mt-2">
+                                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                                            <input 
+                                                type="text" 
+                                                name="email"  
+                                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+                                                placeholder="email"
+                                                onChange={(e) => setEmail(e.target.value)}>
+                                            </input>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="sm:col-span-4">
+                                        <label class="block text-sm font-medium leading-6 text-gray-900">Con Number</label>
+                                        <div class="mt-2">
+                                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                                            <input 
+                                                type="text" 
+                                                name="cnumber"  
+                                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+                                                placeholder="con number"
+                                                onChange={(e) => setCnumber(e.target.value)}>
+                                            </input>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="sm:col-span-4">
+                                        <label class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                                        <div class="mt-2">
+                                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
+                                            <input 
+                                                type="password" 
+                                                name="password"  
+                                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+                                                placeholder="password"
+                                                onChange={(e) => setPassword(e.target.value)}>
+                                            </input>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                </div>
+                                    
+                                    
                             </div>
-                </form>
-                <div class="mt-6 flex items-center justify-end gap-x-6">
-                    <button onClick={() => handleTabClick('loadAdmin')} class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-                 </div>
+                        </div>
+
+                                <div class="mt-6 flex items-center justify-end gap-x-6">
+                                    <button type='submit'  class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                                </div>
+                    </form>
+                
             </div>
             }
         </div>

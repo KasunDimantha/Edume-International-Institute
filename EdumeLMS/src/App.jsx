@@ -18,8 +18,10 @@ import { useAuthContext } from './hooks/useAuthContext';
 import A_LoadallAdminPage from './pages/Admin/A_LoadallAdminPage';
 import A_LoadallStudentPage from './pages/Admin/A_LoadallStudentPage';
 import A_LoadallTeacherPage from './pages/Admin/A_LoadallTeacherPage';
-import A_LoadallCourse from './pages/Admin/a_component/A_LoadallCourse';
 import A_LoadallCoursePage from './pages/Admin/A_LoadallCoursePage';
+import A_SemesterDetailsPage from './pages/Admin/A_SemesterDetailsPage';
+import A_ModuleDetailsPage from './pages/Admin/A_ModuleDetailsPage';
+import S_MyCoursePage from './pages/Student/S_MyCoursePage';
 
 
 
@@ -45,12 +47,15 @@ function App() {
           <Route exact path='/s_dashbord/s_accessCourcesPage'    element={<S_AccessCourcesPage/>}/>
           <Route exact path='/s_dashbord/s_announcementsPage'    element={<S_AnnouncementsPage/>}/>
           <Route exact path='/s_dashbord/s_assingmentPage'       element={<S_AssingmentPage/>}/>
+          <Route exact path='/s_dashbord/s_mycoursepage'       element={<S_MyCoursePage/>}/>
           <Route exact path='/s_dashbord/s_entrolledCouecesPage' element={<S_EntrolledCouecesPage/>}/>
           <Route exact path='/s_dashbord/s_personalResultPage'   element={<S_PersonalResultPage/>}/>
           <Route exact path='/a_dashbord/a_loadalladminPage'     element={<A_LoadallAdminPage/>}/>
           <Route exact path='/a_dashbord/a_loadallstudentPage'   element={<A_LoadallStudentPage/>}/>
           <Route exact path='/a_dashbord/a_loadallteacherPage'   element={<A_LoadallTeacherPage/>}/>
           <Route exact path='/a_dashbord/a_loadallcoursePage'    element={<A_LoadallCoursePage/>}/>
+          <Route exact path='/a_dashbord/a_loadallcoursePage/semesterdetaispage'    element={<A_SemesterDetailsPage/>}/>
+          <Route exact path='/a_dashbord/a_loadallcoursePage/semesterdetaispage/moduledetailspage'    element={<A_ModuleDetailsPage/>}/>
         </Routes>
       </Router>
     </>
